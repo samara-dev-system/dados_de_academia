@@ -1,0 +1,51 @@
+create database dados_academia;
+use dados_academia;
+
+create table alunos (
+id_aluno int auto_increment primary key,
+nome varchar(100),
+data_nascimento date,
+genero varchar(10),
+telefone varchar(30),
+email varchar(100),
+data_cadastro date);
+
+create table professores (
+id_professor int auto_increment primary key,
+nome varchar(100),
+especialidade varchar(100),
+telefone varchar(30),
+email varchar(100)
+);
+
+create table planos (
+id_plano int auto_increment primary key,
+tipo_plano varchar(100),
+descricao varchar(100),
+preco varchar(100),
+duracao_meses date);
+
+create table treinos(
+id_treino int auto_increment primary key,
+id_aluno int,
+descricao varchar(100),
+data_inicio date,
+data_fim date
+);
+
+create table aulas (
+id_aulas int auto_increment primary key,
+tipo_aula varchar(200),
+id_professor int,
+horario time,
+capacidade varchar(100)
+);
+
+create table pagamentos (
+id_pagamento int auto_increment primary key,
+id_aluno int,
+id_plano int,
+data_pagamneto date,
+valor_pago decimal (10, 2), 
+forma_pagamento enum ('cartao', 'pix', 'dinheiro')
+);
